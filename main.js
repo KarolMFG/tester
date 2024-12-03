@@ -5,7 +5,7 @@ let establishFlag = false;
 let _index = 0;
 let conns = [];
 const uniqueIdentifier = Date.now();
-const variable = "this does nothing I just wanted to say I'm batman";
+
 async function establishPeer(index) {
     selfpeer = new Peer(mainID + index);
 
@@ -62,12 +62,12 @@ function receiveMessage(msg) {
 }
 
 function sendMessage() {
-    const messageContent = document.getElementById('messagebox').innerText.trim();
+    const messageContent = document.getElementById('messagebox').textContent.trim();
     if (!messageContent) return console.warn(`[${uniqueIdentifier}] Attempted to send an empty message.`);
 
     const toSend = {
         message: messageContent,
-        username: document.getElementById('usernamebox').innerText.trim() || "Anonymous",
+        username: document.getElementById('usernamebox').textContent.trim() || "Anonymous",
         timestamp: Date.now()
     };
 
@@ -81,7 +81,7 @@ function sendMessage() {
     });
 
     receiveMessage(toSend);
-    document.getElementById('messagebox').innerText = '';
+    document.getElementById('messagebox').textContent = '';
 }
 
 function delay(ms) {
@@ -120,6 +120,13 @@ async function establishConns() {
             }
         }
     }
+}
+
+function applyCustomizations() {
+    document.body.style.setProperty('--bg-color', document.getElementById('bg-color').value);
+    document.body.style.setProperty('--text-color', document.getElementById('text-color').value);
+    document.body.style.setProperty('--chat-bg-color', document.getElementById('chat-bg-color').value);
+    document.body.style.setProperty('--msg-bg-color', document.getElementById('msg-bg-color').value);
 }
 
 init();

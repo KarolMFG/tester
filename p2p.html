@@ -1,53 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Chatroom.mp4</title>
-
+    <title>Chatroom.movwavmp3mp4mp5mp6</title>
     <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
     <style>.hidden{display:none}</style>
-
 </head>
-
 <body style="background-color: #222;color:#fff">
-    
-    <h1 style="width:100%;text-align:center;height:5%;margin:0px;margin-bottom:10px">real</h1>
-
-    <div id="displaybox" style = "position:relative;padding:10px;width:90%;left:5%;background-color: #1c1c1c;">
-        <div id = "samplebox" class = "hidden" style="position:relative;background-color:#222;width:90%;height:20%;left:5%;padding:5px;margin:5px">
+    <h1 style="width:100%;text-align:center;height:5%;margin:0px;margin-bottom:10px">Real-time Chat</h1>
+    <div id="displaybox" style="position:relative;padding:10px;width:90%;left:5%;background-color: #1c1c1c;">
+        <div id="samplebox" class="hidden" style="position:relative;background-color:#222;width:90%;height:20%;left:5%;padding:5px;margin:5px">
             <h4 style="margin:0px">[[[username]]] <span style="color:#555;font-size: small;">- [[[timestamp]]]</span></h4>
             <p style="margin:2px">[[[message]]]</p>
         </div>
-
     </div>
-    
     <div style="height:200px"></div>
-
-    <!-- <button onclick="jerry()">jerry</button> -->
-
-    <!-- <div id="roomid" style = "background-color:#fff;width:20%;height:10%;color:#fff" contenteditable="true"></div> -->
-
     <div style="position:fixed;bottom:0px;left:0px;width:100%;background-color:#292929;margin:0px;height:20%">
         <div style="margin:auto;width:80%;background-color: #222;height:70%;top:20%;position:relative">
-            <div id = "usernamebox" contenteditable="true" style="position:absolute;width:30%;height:18%;left:5%;top:5%;background-color:#1c1c1c;padding:2px">default user</div>
-            <div id = "messagebox" contenteditable="true" style="background-color:#292929;width:83%;height:60%;top:32%;left:1%;position:absolute;font-size:large"></div>
-            <button style="height:100%;font-size:large;right:0px;top:0px;position:absolute;width:15%"
-            onclick = "sendMessage();">
-            Send</button>
+            <div id="usernamebox" contenteditable="true" style="position:absolute;width:30%;height:18%;left:5%;top:5%;background-color:#1c1c1c;padding:2px">default user</div>
+            <div id="messagebox" contenteditable="true" style="background-color:#292929;width:83%;height:60%;top:32%;left:1%;position:absolute;font-size:large"></div>
+            <button style="height:100%;font-size:large;right:0px;top:0px;position:absolute;width:15%" onclick="sendMessage();">Send</button>
         </div>
     </div>
 
-
-    <!--ids are all of the form [identifier string][index], such that on init each client picks the lowest available index-->
-    <!--each client maintains connections with 8 others, four indeces above and four below-->
-    <!--messages propogate through the network, checked by timestamp to avoid infinite loops-->
-    <!--if a gap of four indeces emerges, the network becomes separated. this can be avoided by infrequently reassigning ids to the lowest available index, filling the holes-->
-    <!-- upon reception, if a message is new, add it to the screen and relay it to all connections -->
-    <!-- if message is not new (duplicate timestamp), do nothing -->
-
-    
     <script src="main.js"></script>
-     
-
 </body>
-
 </html>

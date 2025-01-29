@@ -28,7 +28,9 @@ var sketchProc = function(processingInstance) {
         const pBMR = 0.2;//player ball mass ratio (0.2 = player moves 20% the required distance, ball moves 80%)
         const pMT = 0.1;//player momentum transfer
 
-        var pD = 0;// point differential (red +, yellow -)
+        var pD = 0;// point differential (red +, yellow -) (NOT p. Diddy)
+        var p1score = 0;
+        var p2score = 0;
 
         var speedFactor = 1;
 
@@ -207,10 +209,26 @@ const aiinput = function(){// player two, ai
     if(
         ((this.y + 10*this.vy + 40 < by + 10*bvy || by + bvy*10 < this.y + 10*this.vy - 200) 
         || abs(this.x-bx) > 30*(this.vx+bvx)) && 
-        (!this.isGrounded&&this.y < groundHeight-100)
+        (!this.isGrounded&&this.y < groundHeight-100)// if has no business in air
     ){
 
+        var willHit = false;
+        var tx = this.x;
+        var ty = this.y;
+        var tbx = bx;
+        var tby = by;
+        var tbvy = bvy;
+        for(var i = 0; i < 15;i++){
+            tx+=this.vx;ty=this.vy;tbx+=bvx;tby+=tbvy;
+            tbvy++;
+            if((tx-tbx)*(tx-tbx)+(ty-tby)*(ty-tby) < (br+this.r-3)*(br+this.r-3)){
+                willHit = true;
+            }
+        }// not if on collision course
+
+        if(!willHit){// avoid missing the ball
             this.s=true;// no floating around, we stay on the ground in this zone
+        }
 
     }
     
@@ -410,6 +428,7 @@ var players = [Player(0,starts[0],wasdinput),Player(1,starts[1],arrowsinput)];
 
                 init();
                 pD=0;
+                p1score=0;p2score=0;
                 updated=false;
             }
 
@@ -455,10 +474,13 @@ var players = [Player(0,starts[0],wasdinput),Player(1,starts[1],arrowsinput)];
             fill(255);
             ellipse(bx,by,br*2,br*2);
 
-            if(bx < 0){pD--;init();}
-            if(bx > 640){pD++;init();}
+            if(bx < 0){pD--;p2score++;init();}
+            if(bx > 640){pD++;p1score++;init();}
 
-            text(pD, 0, 20, 640, 100);
+            // text("vs", 0, 20, 640, 100);
+            fill(100);
+            text(p1score, 0, 20, 100, 100);
+            text(p2score, 540, 20, 100, 100);
 
 
             binput = [];//reset

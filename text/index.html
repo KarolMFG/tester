@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Get to Cleveland</title>
+        <link rel="stylesheet" href="../main.css">
+        
+    <link rel="icon" type="icon/x-image" href="https://r128w.github.io/r128.png">
+    </head>
+    <body>
+        <div id='popup-main' style="position:fixed;right:-260px;top:0px;width:250px;height:100px;background-color:#222;border-radius: 10%;border:solid 2px #fff;">
+            <p id="popup-title" style="padding-left:10px;padding-top:5px;font-size:x-large"></p>
+            <p id="popup-text" style="padding:10px;padding-top:0px;margin-top:0px"></p>
+        </div>
+        <h3 class="center">Get to Cleveland</h3>
+        <h6 class="center">(Dramatized)</h6>
+        <div id="main" style="padding:20px;background-color: #222;margin:30px;width:90%">
+
+            <p id="story"></p>
+            <div id="options">
+                
+            </div>
+
+            <div style="width:100%;margin-top:20px">
+
+                <table style="width:100%">
+                    <tr style="height:fit-content">
+                        <td style="width:20%">
+                            <p>Energy</p>
+                            <div id="energybar" style="height:20px;width:100%;background-color: #393;"></div>
+                        </td>
+                        <td style="width:20%">
+                            <p>Thirst</p>
+                            <div id="thirstbar" style="height:20px;width:100%;background-color: #933;"></div>
+                        </td>
+                        <td style="width:20%">
+                            <p>Hunger</p>
+                            <div id="hungerbar" style="height:20px;width:100%;background-color: #933;"></div>
+                        </td>
+                        <td style="width:40%;padding:3px">
+                            <p>Money: $<span id="statusmoney">20</span></p>
+                            <p>Miles to Cleveland: <span id="statusdistance">368</span></p>
+                        </td>
+                    </tr>
+                </table>
+                
+            </div>
+
+
+            <div id="sampleOption" class="hidden" style="width:fit-content;background-color: #333;padding:7px;margin-top:5px">
+                <button onclick="[[[JS]]]" style="margin-top:4px;margin-right:5px">Select</button>
+                <p style="float:right">[[[TEXT]]]</p>
+            </div>
+
+
+            <script src="util.js"></script>
+            <script src="main.js"></script>
+            <script src="popup.js"></script>
+        </div>
+
+    </body>
+
+
+    <footer>
+        <p>Back: <a href="../index.html">../index.html</a></p>
+    </footer>
+</html>

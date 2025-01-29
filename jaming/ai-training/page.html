@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head><title>training</title>
+
+<style>
+    p{margin-top:0px;margin-bottom:4px}
+</style>
+
+<script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script>
+
+</head>
+<body>
+    <p>its training time</p>
+    <!-- <p><b>inputs:</b>
+        <p>x pos relative to defending side</p>
+        <p>y pos relative to ground</p>
+        <p>vx</p>
+        <p>vy</p>
+        <p>isgrounded</p>
+        <p>bx relative to this.x, + means in attacking direction</p>
+        <p>by relative to this.y</p>
+        <p>bvx</p>
+        <p>bvy</p>
+        <p>opponent x pos relative to defending side</p>
+        <p>opponent y pos relative to ground</p>
+        <p>opponent vx</p>
+        <p>opponent vy</p>
+    </p> -->
+    <!-- <p><b>data structure:</b>
+        <p>[<br>
+            [<br>
+                [bias, w1, w2, w3...],<br>
+                [bias, w1, w2, w3...],<br>
+                ...<br>
+            ], //hidden layer 1<br>
+            [<br>
+                [bias, w1, w2, w3...],<br>
+                [bias, w1, w2, w3...],<br>
+                ...<br>
+            ], //hidden layer 2<br>
+            [<br>
+                [bias, w1, w2, w3...],<br>
+                [bias, w1, w2, w3...],<br>
+                ...<br>
+            ] //outputs<br>
+            ]</p>
+    </p> -->
+    <!-- <p><b>outputs:</b></p>
+    <p>w</p>
+    <p>a</p>
+    <p>s</p>
+    <p>d</p> -->
+
+    <canvas id = "canvas"></canvas>
+
+    <button onclick="train()">start training</button>
+    <button onclick="haltNow()">halt (wip)</button>
+    <button onclick="startCanvas()">canvas time</button>
+    <button onclick="players[1].extra.weights=trainFor(5000,players[1].extra.weights)">continue for 5k</button>
+
+    <script src="script.js"></script>
+</body>
+
+
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Deswon't</title><link rel="stylesheet" href="../main.css">
+        <style>.barItem{margin-top:10px;margin-bottom:10px;margin:1.5%;display:inline-table}</style>
+        <link rel="icon" type="icon/x-image" href="https://r128w.github.io/r128.png">
+    </head>
+    <body>
+        <h1 class="center">Deswon't</h1>
+        <h6 class="center">Low gang Logang</h1>
+
+        <div class="center container" style="width:95%;height:fit-content;max-width:800px">
+            <canvas id="canvas" class="center" style="width:97%;height:400px"></canvas>
+            <div class="item barItem" style="width:50%;font-family: monospace;font-size:x-large;height:fit-content">
+                y = <div style="background-color:#222;color:#f00;min-width:100px;height:fit-content;min-height:20px;width:fit-content;display:inline-block" contenteditable="true" id="eq-box" spellcheck="false" onkeyup="draw()">x^3+x^2-x</div>
+                <input type="color" style="float:left;margin-right:5px" value="#aaffff" id="eq-color" onchange="draw()">
+            </div>
+            <div class="item barItem" style="width:fit-content;height:fit-content;padding:10px">
+                <p>Camera Movement <span style="color:#777;font-size:small">(Or use mouse)</span></p>
+                <button onclick="moveCam({x:-mS*6*(cv.sx)})"><</button>
+                <button onclick="moveCam({y:mS*6*(cv.sy)})">^</button>
+                <button onclick="moveCam({y:-mS*6*(cv.sy)})">v</button>
+                <button onclick="moveCam({x:mS*6*(cv.sx)})">></button>
+                <button onclick="by=Math.pow(1.5, -mS*0.33);moveCam({sx:by,sy:by})">+</button>
+                <button onclick="by=(mS*0.5)+1;moveCam({sx:by,sy:by})">-</button>
+                <input type="range" max="10"min="0" value="1" onchange="mS=this.value">
+                <br>
+                <p>Transformation of Function</p>
+                <button onclick="eqe.innerText=transform(eqe.innerText, {x:-tS});draw()"><</button>
+                <button onclick="eqe.innerText=transform(eqe.innerText, {y:tS});draw()">^</button>
+                <button onclick="eqe.innerText=transform(eqe.innerText, {y:-tS});draw()">v</button>
+                <button onclick="eqe.innerText=transform(eqe.innerText, {x:tS});draw()">></button>
+                <button onclick="eqe.innerText=transform(eqe.innerText, {sx:1/tS});draw()"><></button>
+                <button onclick="eqe.innerText=transform(eqe.innerText, {sy:tS});draw()">v^</button>
+                <input type="number" value="1" onchange="tS=this.value">
+
+            </div>
+            <!-- <div class="item barItem" style="width:fit-content;padding:10px">
+                <p>Translation wip</p>
+                <button onclick="moveCam({x:-(cv.sx)})"><</button>
+                <button onclick="moveCam({y:(cv.sy)})">^</button>
+                <button onclick="moveCam({y:-(cv.sy)})">v</button>
+                <button onclick="moveCam({x:(cv.sx)})">></button>
+                <button onclick="moveCam({sx:0.7,sy:0.7})">+</button>
+                <button onclick="moveCam({sx:1.5,sy:1.5})">-</button>
+            </div> -->
+        </div>
+
+
+        <script src="util.js"></script>
+        <script src="canvas.js"></script>
+
+    </body>
+    <footer>
+        <p>Back: <a href="../index.html">../index.html</a></p>
+    </footer>
+</html>
